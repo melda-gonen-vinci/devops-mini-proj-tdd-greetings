@@ -10,3 +10,7 @@ test('greeting null, undefined or empty should return a greeting with my friend'
   expect(greeting(undefined)).toBe('Hello, my friend.')
   expect(greeting('')).toBe('Hello, my friend.')
 })
+
+test('greeting should return a greeting in upper case', () => {
+  expect(greeting('JERRY')).toBe('HELLO, JERRY.')
+})
