@@ -25,8 +25,24 @@ test('greeting should return a greeting with multiple names', () => {
   )
 })
 
+test('greeting should return a greeting with multiple names in the requested language', () => {
+  expect(greeting(['Amy', 'Brian', 'Charlotte'], 'fr')).toBe(
+    'Bonjour, Amy, Brian et Charlotte.'
+  )
+})
+
 test('greeting should return a greeting with multiple names with some upper case name', () => {
   expect(greeting(['Amy', 'BRIAN', 'Charlotte'])).toBe(
     'Hello, Amy and Charlotte. AND HELLO, BRIAN!'
   )
+})
+
+test('greeting should return a greeting with multiple names with some upper case name in the requested language', () => {
+  expect(greeting(['Amy', 'BRIAN', 'Charlotte'], 'fr')).toBe(
+    'Bonjour, Amy et Charlotte. ET BONJOUR, BRIAN!'
+  )
+})
+
+test('greeting should return a greeting in the requested language', () => {
+  expect(greeting('Marie', 'fr')).toBe('Bonjour, Marie.')
 })
