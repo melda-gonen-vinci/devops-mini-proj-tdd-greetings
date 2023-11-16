@@ -1,16 +1,29 @@
-function greeting (name) {
+function greeting (name, language) {
   if (name === null || name === undefined || name === '') {
     return greetingWithNoName()
   }
 
   if (Array.isArray(name)) {
-    return greetingWithMultipleNames(name)
+    return greetingWithMultipleNames(name, language)
   }
   if (name === name.toUpperCase()) {
-    return greetingWithUpperCase(name)
+    return greetingWithUpperCase(name, language)
   }
 
-  return `Hello, ${name}.`
+  return greetingWithSpecifiedLanguage(name, language)
+}
+
+function greetingWithSpecifiedLanguage (name, language) {
+  let greeting = ''
+  switch (language) {
+    case 'fr':
+      greeting = `Bonjour, ${name}.`
+      break
+
+    default:
+      greeting = `Hello, ${name}.`
+  }
+  return greeting
 }
 
 function greetingWithNoName () {
@@ -21,7 +34,7 @@ function greetingWithUpperCase (name) {
   return `HELLO, ${name}!`
 }
 
-function greetingWithMultipleNames (names) {
+function greetingWithMultipleNames (names, language) {
   const normalNames = []
   const upperCaseNames = []
 
@@ -39,23 +52,51 @@ function greetingWithMultipleNames (names) {
   let greeting = ''
 
   if (normalNames.length > 0 && upperCaseNames.length === 0) {
-    greeting +=
-            'Hello, ' +
-            normalNames.slice(0, index).join(', ') +
-            ' and ' +
-            normalNames[index] +
-            '.'
+    switch (language) {
+      case 'fr':
+        greeting +=
+                    'Bonjour, ' +
+                    normalNames.slice(0, index).join(', ') +
+                    ' et ' +
+                    normalNames[index] +
+                    '.'
+        break
+
+      default:
+        greeting +=
+                    'Hello, ' +
+                    normalNames.slice(0, index).join(', ') +
+                    ' and ' +
+                    normalNames[index] +
+                    '.'
+    }
   } else if (upperCaseNames.length > 0 && normalNames.length > 0) {
-    greeting +=
-            'Hello, ' +
-            normalNames.slice(0, index).join(', ') +
-            ' and ' +
-            normalNames[index] +
-            '. AND ' +
-            'HELLO, ' +
-            upperCaseNames.slice(0, index2).join(', ') +
-            upperCaseNames[index2] +
-            '!'
+    switch (language) {
+      case 'fr':
+        greeting +=
+                    'Bonjour, ' +
+                    normalNames.slice(0, index).join(', ') +
+                    ' et ' +
+                    normalNames[index] +
+                    '. ET ' +
+                    'BONJOUR, ' +
+                    upperCaseNames.slice(0, index2).join(', ') +
+                    upperCaseNames[index2] +
+                    '!'
+        break
+
+      default:
+        greeting +=
+                    'Hello, ' +
+                    normalNames.slice(0, index).join(', ') +
+                    ' and ' +
+                    normalNames[index] +
+                    '. AND ' +
+                    'HELLO, ' +
+                    upperCaseNames.slice(0, index2).join(', ') +
+                    upperCaseNames[index2] +
+                    '!'
+    }
   }
   return greeting
 }
