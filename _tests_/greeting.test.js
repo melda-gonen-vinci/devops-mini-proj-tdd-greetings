@@ -15,6 +15,12 @@ test('greeting should return a greeting in upper case', () => {
   expect(greeting('JERRY')).toBe('HELLO, JERRY.')
 })
 
-test('greeting should return a greeting in with two names', () => {
-  expect(greeting('Jill', 'Jane')).toBe('Hello, Jill and Jane.')
+test('greeting should return a greeting with two names', () => {
+  expect(greeting(['Jill', 'Jane'])).toBe('Hello, Jill and Jane.')
+})
+
+test('greeting should return a greeting with multiple names', () => {
+  expect(greeting(['Amy', 'Brian', 'Charlotte'])).toBe(
+    'Hello, Amy, Brian and Charlotte.'
+  )
 })

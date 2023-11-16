@@ -1,15 +1,16 @@
-function greeting (name1, name2) {
-  if (name1 === null || name1 === undefined || name1 === '') {
+function greeting (name) {
+  if (name === null || name === undefined || name === '') {
     return greetingWithNoName()
   }
-  if (name2 !== undefined) {
-    return greetingWithTwoNames(name1, name2)
+
+  if (Array.isArray(name)) {
+    return greetingWithMultipleNames(name)
   }
-  if (name1 === name1.toUpperCase()) {
-    return greetingWithUpperCase(name1)
+  if (name === name.toUpperCase()) {
+    return greetingWithUpperCase(name)
   }
 
-  return `Hello, ${name1}.`
+  return `Hello, ${name}.`
 }
 
 function greetingWithNoName () {
@@ -20,8 +21,16 @@ function greetingWithUpperCase (name) {
   return `HELLO, ${name}.`
 }
 
-function greetingWithTwoNames (name1, name2) {
-  return `Hello, ${name1} and ${name2}.`
+function greetingWithMultipleNames (name) {
+  const index = name.length - 1
+
+  return (
+    'Hello, ' +
+        name.slice(0, index).join(', ') +
+        ' and ' +
+        name[index] +
+        '.'
+  )
 }
 
 module.exports = greeting
