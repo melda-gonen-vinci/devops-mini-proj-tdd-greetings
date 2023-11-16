@@ -12,7 +12,7 @@ test('greeting null, undefined or empty should return a greeting with my friend'
 })
 
 test('greeting should return a greeting in upper case', () => {
-  expect(greeting('JERRY')).toBe('HELLO, JERRY.')
+  expect(greeting('JERRY')).toBe('HELLO, JERRY!')
 })
 
 test('greeting should return a greeting with two names', () => {
@@ -22,5 +22,11 @@ test('greeting should return a greeting with two names', () => {
 test('greeting should return a greeting with multiple names', () => {
   expect(greeting(['Amy', 'Brian', 'Charlotte'])).toBe(
     'Hello, Amy, Brian and Charlotte.'
+  )
+})
+
+test('greeting should return a greeting with multiple names with some upper case name', () => {
+  expect(greeting(['Amy', 'BRIAN', 'Charlotte'])).toBe(
+    'Hello, Amy and Charlotte. AND HELLO, BRIAN!'
   )
 })
