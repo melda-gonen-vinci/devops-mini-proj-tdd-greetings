@@ -9,6 +9,7 @@ Travail de recherche , mettre en place de l'integration continue avec les GitHub
 ## Informations
 - N° de groupe : 17
 - Membres du groupe : CAYLANADIA Vanya, GÖNEN Melda
+https://github.com/melda-gonen-vinci/devops-mini-proj-tdd-greetings
 
 
 ## Énoncé
@@ -48,26 +49,26 @@ Liens utiles:
 
 - Décrivez brièvement ce que fait votre fichier YML.  
 ```bash
-<votre réponse ici>
+<le fichier YAML décrit un workflow d intégration continu qui est déclenché lorsqu une pull request est ouverte. elle inclut plusieurs étapes telles que la vérification du code, installation des dépendances, la correction du code selon prettier et eslint, l execution des tests avec jest, affichage du début et fin pipeline par le biais d un message.>
 ```
 - En particulier : à quoi sert le “on” ? dans votre fichier YML ?  Quelle est la différence entre “on push” et “on pull request”. Que conseilleriez-vous comme option parmi ces 2 options à un groupe de développeurs junior ? Pourquoi ? 
 ```bash
-<votre réponse ici>
+<le "on" précise les évenements qui déclencheront l'exécution du workflow. la différence entre le "on push" et "on pull request" est que le premier se fait à chaque push des developpeurs tandis que le second se fait lors de l ouverture d'une pull request.>
 ```
 - Quelle est la différence entre run et run_on ?  Expliquez par rapport à votre pipeline.  
 ```bash
-<votre réponse ici>
+<"run" c'est pour les commandes à executer telles que npm i, npm run code:fix. "run_on" c'est pour définir l'environement de travail (ubuntu pour notre cas)>
 ```
 - Quelle est la différence entre “use” et “run”. Expliquez par rapport à votre pipeline. 
 ```bash
-<votre réponse ici>
+<"run" c'est pour les commandes à executer telles que npm i, npm run code:fix. "uses" c'est pour spécifier une action GitHub telle que checkout>
 ```
 - Peut-on intervertir différentes étapes dans votre pipeline ? Que votre réponse soit oui ou non, expliquez par rapport à votre pipeline. 
 ```bash
-<votre réponse ici>
+<oui tant que cela reste logique du point de vue du worflow. il faut faire attention à maintenir une séquence logique afin qu'il n y ai pas de soucis comme executer les tests aprés l'installation des dépendances.>
 ```
 - Je veux ajouter un test de sécurité sur mon pipeline en exécutant le programme secure_app. Que devrais-je faire ?  Quelles questions devriez-vous vous poser ? 
 ```bash
-<votre réponse ici>
+<on doit vérifier si secure_app est compatible avec l'environnement de notre pipeline. il faut se demander s'i faut ajouter des étapes pour la gestion des erreurs (dans le cas ou il y en a)>
 ```
 
